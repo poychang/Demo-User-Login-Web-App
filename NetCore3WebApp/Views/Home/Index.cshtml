@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="text-left">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Claim Value</th>
+                <th>Claim Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in ViewBag.Claims)
+            {
+                <tr>
+                    <td>@claim.Value</td>
+                    <td>@claim.Type</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,26 @@
+﻿@model LoginFormModel
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<div>
+    @* autocomplete="off" 跟資安有關 *@
+    <form asp-controller="Auth" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl" name="loginForm" autocomplete="off" method="post">
+        <div class="form-group">
+            <label for="account">Account</label>
+            <input type="text" asp-for="@Model.Account" class="form-control" id="account" placeholder="Account">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" asp-for="@Model.Password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        @if (!string.IsNullOrEmpty(ViewBag.errMsg))
+        {
+            <div class="alert alert-warning" role="alert">
+                @ViewBag.errMsg
+            </div>
+        }
+    </form>
+</div>
